@@ -1,0 +1,33 @@
+/* sliderStyles.css */
+.slick-prev,
+.slick-next {
+  width: 48px; /* Adjust width as needed */
+  height: 48px; /* Adjust height as needed */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 32px; /* Adjust font size for the arrows */
+  color: white; /* Arrow color */
+}
+
+/* Optional: Customize the background and positioning of arrows */
+.slick-prev {
+  left: 10px; /* Adjust position */
+  margin-left: -3rem;
+}
+
+.slick-next {
+  right: 10px; /* Adjust position */
+  margin-right: -3rem;
+
+}
+
+/* Optional: Customize the appearance of the arrows */
+.slick-prev:before {
+  content: '←'; /* Use a left arrow */
+}
+
+.slick-next:before {
+  content: '→'; /* Use a right arrow */
+}
