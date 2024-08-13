@@ -34,7 +34,8 @@ export default function RootLayout({
   return (
     <html
       className={`${space_grotesk.variable} scroll-smooth`}
-      suppressHydrationWarning>
+      suppressHydrationWarning
+    >
       {/* <link
         rel='icon'
         type='image/png'
@@ -96,7 +97,8 @@ export default function RootLayout({
 
       <body
         // suppressHydrationWarning={true}
-        className={`bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white ${sans.variable}`}>
+        className={`bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white ${sans.variable}`}
+      >
         <ThemeProviders>
           <div className='flex flex-col justify-between font-sans'>
             <Header />

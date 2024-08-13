@@ -2,9 +2,11 @@
 
 import './styles.css';
 
-import IndustryExpertiseTag from './IndustryExpertiseTag';
 // components/IndustryExpertiseSlider.tsx
-import React from 'react';
+import React, { useRef } from 'react';
+
+import Image from 'next/image';
+import IndustryExpertiseTag from './IndustryExpertiseTag';
 import Slider from 'react-slick';
 import WorkItem from './WorkItem';
 
@@ -35,8 +37,9 @@ const sliderSettings = {
   slidesToShow: 3,
   swipeToSlide: true,
   slidesToScroll: 1,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
+  arrows: false,
+  // nextArrow: <SampleNextArrow />,
+  // prevArrow: <SamplePrevArrow />,
   responsive: [
     {
       breakpoint: 1024,
@@ -58,7 +61,7 @@ const sliderSettings = {
 
 const ecommerceWorkItems = [
   {
-    imageSrc: 'https://via.placeholder.com/424x282',
+    imageSrc: '/assets/images/portfolio/img.png',
     date: 'MAR 27, 2023',
     readTime: '3 Mins read',
     tags: ['AI', 'System Management'],
@@ -67,7 +70,7 @@ const ecommerceWorkItems = [
       'The high-level scope of SAMMI is to function as a sales activity management mobile application, aiding GEL’s representatives...',
   },
   {
-    imageSrc: 'https://via.placeholder.com/424x282',
+    imageSrc: '/assets/images/portfolio/img-1.png',
     date: 'MAR 27, 2023',
     readTime: '3 Mins read',
     tags: ['AI', 'System Management'],
@@ -76,7 +79,7 @@ const ecommerceWorkItems = [
       'The high-level scope of SAMMI is to function as a sales activity management mobile application, aiding GEL’s representatives...',
   },
   {
-    imageSrc: 'https://via.placeholder.com/424x282',
+    imageSrc: '/assets/images/portfolio/img-2.png',
     date: 'MAR 27, 2023',
     readTime: '3 Mins read',
     tags: ['AI', 'System Management'],
@@ -154,73 +157,146 @@ const vrWorkItems = [
 
 const works = [
   {
-    name: 'Ecommerce1',
+    name: 'Ecommerce',
     svgPath: '/assets/svgs/ecom.svg',
     items: ecommerceWorkItems,
+    bookmark: 'ecommerce',
   },
   {
-    name: 'Ecommerce2',
-    svgPath: '/assets/svgs/ecom.svg',
+    name: 'Healthcare',
+    svgPath: '/assets/svgs/healthcare.svg',
     items: ecommerceWorkItems,
+    bookmark: 'healthcare',
   },
   {
-    name: 'Ecommerce3',
-    svgPath: '/assets/svgs/ecom.svg',
+    name: 'Insurance',
+    svgPath: '/assets/svgs/insurance.svg',
     items: ecommerceWorkItems,
+    bookmark: 'insurance',
   },
   {
-    name: 'Ecommerce4',
-    svgPath: '/assets/svgs/ecom.svg',
+    name: 'Real Estate',
+    svgPath: '/assets/svgs/real_estate.svg',
     items: ecommerceWorkItems,
+    bookmark: 'real-estate',
   },
   {
-    name: 'Ecommerce5',
-    svgPath: '/assets/svgs/ecom.svg',
+    name: 'Business Process Management',
+    svgPath: '/assets/svgs/management.svg',
     items: ecommerceWorkItems,
+    bookmark: 'management',
   },
   {
-    name: 'Ecommerce6',
-    svgPath: '/assets/svgs/ecom.svg',
+    name: 'Custom ERP',
+    svgPath: '/assets/svgs/esp.svg',
     items: ecommerceWorkItems,
+    bookmark: 'erp',
   },
   {
-    name: 'Ecommerce7',
-    svgPath: '/assets/svgs/ecom.svg',
+    name: 'Web Content Management',
+    svgPath: '/assets/svgs/content.svg',
     items: ecommerceWorkItems,
+    bookmark: 'content',
   },
   {
-    name: 'Ecommerce8',
-    svgPath: '/assets/svgs/ecom.svg',
-    items: ecommerceWorkItems,
-  },
-  {
-    name: 'VR',
+    name: 'AR / VR',
     items: vrWorkItems,
     svgPath: '/assets/svgs/vr.svg',
+    bookmark: 'vr',
+  },
+  {
+    name: 'Logistics & Supply Chain Management',
+    svgPath: '/assets/svgs/logistic.svg',
+    items: ecommerceWorkItems,
+    bookmark: 'logistic',
   },
 ];
 
-export default function IndustryExpertiseSlider() {
+const arrows = [
+  {
+    src: '/assets/svgs/arrow_right.svg',
+    alt: 'Previous',
+    width: 20,
+    height: 20,
+    className: 'text-5xl ',
+  },
+  {
+    src: '/assets/svgs/arrow_right.svg',
+    alt: 'Next',
+    width: 20,
+    height: 20,
+    className: 'rotate-180 text-5xl ',
+  },
+];
+
+const Carousel = React.forwardRef((props: any, ref: React.Ref<Slider>) => {
+  const { work } = props;
+
   return (
-    <div className='md:px-[15%] flex flex-col gap-2'>
-      {works.map((work) => {
+    <Slider
+      ref={ref}
+      {...sliderSettings}>
+      {(work.items || []).map((item: any, index: number) => (
+        <div
+          key={index}
+          className='py-2'>
+          <WorkItem {...item} />
+        </div>
+      ))}
+    </Slider>
+  );
+});
+
+export default function IndustryExpertiseSlider() {
+  const sliderRefs = useRef<(Slider | null)[]>([]);
+
+  return (
+    <div className='md:px-[15%] flex flex-col gap-2 px-6'>
+      {works.map((work, index) => {
         return (
-          <div key={work.name}>
-            <div className='flex justify-start mt-10'>
-              <IndustryExpertiseTag
-                svgPath={work.svgPath}
-                text={work.name}
-              />
-            </div>
-            <Slider {...sliderSettings}>
-              {(work.items || []).map((item, index) => (
+          <div
+            key={work.name}
+            id={work.bookmark}>
+            <hr className='my-8 border-gray-600' />
+
+            <div className='h-14 justify-between items-center flex mb-4'>
+              <div className='flex justify-start items-center'>
+                <IndustryExpertiseTag
+                  svgPath={work.svgPath}
+                  text={work.name}
+                  bookmark={work.bookmark}
+                />
+              </div>
+              <div className='justify-end items-center gap-4 flex'>
                 <div
-                  key={index}
-                  className='py-2'>
-                  <WorkItem {...item} />
+                  className='cursor-pointer p-2.5 border border-[#38b6ff] rounded-[26px] justify-start items-center gap-2.5 flex transition duration-300 ease-in-out hover:border-[#70CBFF]'
+                  onClick={() => sliderRefs.current[index]?.slickPrev()}>
+                  <Image
+                    src='/assets/svgs/arrow_right.svg'
+                    alt='Previous'
+                    width={20}
+                    height={20}
+                    className='text-5xl'
+                  />
                 </div>
-              ))}
-            </Slider>
+                <div
+                  className='cursor-pointer p-2.5 border border-[#38b6ff] rounded-[26px] justify-start items-center gap-2.5 flex rotate-180'
+                  onClick={() => sliderRefs.current[index]?.slickNext()}>
+                  <Image
+                    src='/assets/svgs/arrow_right.svg'
+                    alt='Next'
+                    width={20}
+                    height={20}
+                    className='text-5xl'
+                  />
+                </div>
+              </div>
+            </div>
+
+            <Carousel
+              work={work}
+              ref={(el) => (sliderRefs.current[index] = el) as any}
+            />
           </div>
         );
       })}

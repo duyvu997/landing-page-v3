@@ -18,7 +18,7 @@ function PartnerSection() {
     'partner-12.png',
   ];
   return (
-    <div className='w-full lg:px-[316px] md:px-[200px] px-[24px] pb-[56px] lg:py-[100px] rounded-[7px] flex-col justify-start items-start gap-14 inline-flex'>
+    <div className='w-full md:px-[15%] px-6 pb-14 lg:py-[100px] rounded-[7px] flex-col justify-start items-start gap-14 inline-flex'>
       <div className='self-stretch justify-between items-start inline-flex'>
         <div>
           <span className='text-white text-5xl capitalize font-bold leading-[57.60px]'>
@@ -33,7 +33,8 @@ function PartnerSection() {
         {partnerImageNames.map((partner) => (
           <div
             key={partner}
-            className='md:max-w-[200px] w-full h-[120px] flex items-center justify-center bg-white rounded-lg '>
+            className='md:max-w-[200px] w-full h-[120px] flex items-center justify-center bg-white rounded-lg '
+          >
             <Image
               src={imageDirPath + partner}
               alt=''

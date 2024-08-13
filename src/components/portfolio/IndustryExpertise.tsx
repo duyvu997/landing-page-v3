@@ -4,31 +4,66 @@ import WorkItem from './WorkItem';
 
 export default function IndustryExpertise() {
   const industryExpertiseItems = [
-    { name: 'All Industries', icon: '', isActive: true },
-    { name: 'Ecommerce', icon: '/assets/svgs/ecom.svg' },
-    { name: 'Healthcare', icon: '/assets/svgs/healthcare.svg' },
-    { name: 'Insurance', icon: '/assets/svgs/insurance.svg' },
-    { name: 'Real Estate', icon: '/assets/svgs/real_estate.svg' },
+    {
+      name: 'All Industries',
+      icon: '',
+      bookmark: '',
+      isActive: true,
+    },
+    {
+      name: 'Ecommerce',
+      icon: '/assets/svgs/ecom.svg',
+      bookmark: 'ecommerce',
+    },
+    {
+      name: 'Healthcare',
+      icon: '/assets/svgs/healthcare.svg',
+      bookmark: 'healthcare',
+    },
+    {
+      name: 'Insurance',
+      icon: '/assets/svgs/insurance.svg',
+      bookmark: 'insurance',
+    },
+    {
+      name: 'Real Estate',
+      icon: '/assets/svgs/real_estate.svg',
+      bookmark: 'real-estate',
+    },
     {
       name: 'Business Process Management',
       icon: '/assets/svgs/management.svg',
+      bookmark: 'management',
     },
-    { name: 'Custom ERP', icon: '/assets/svgs/esp.svg' },
-    { name: 'Web Content Management', icon: '/assets/svgs/content.svg' },
-    { name: 'AR / VR', icon: '/assets/svgs/vr.svg' },
+    {
+      name: 'Custom ERP',
+      icon: '/assets/svgs/esp.svg',
+      bookmark: 'erp',
+    },
+    {
+      name: 'Web Content Management',
+      icon: '/assets/svgs/content.svg',
+      bookmark: 'content',
+    },
+    {
+      name: 'AR / VR',
+      icon: '/assets/svgs/vr.svg',
+      bookmark: 'vr',
+    },
     {
       name: 'Logistics & Supply Chain Management',
       icon: '/assets/svgs/logistic.svg',
+      bookmark: 'logistic',
     },
   ];
 
   return (
     <>
       <div className='text-center pt-10 md:pt-[5%]'>
-        <span className="text-white text-3xl md:text-5xl font-bold font-['Poppins'] capitalize leading-[36px] md:leading-[57.60px]">
+        <span className="text-white text-3xl md:text-5xl font-bold capitalize leading-[36px] md:leading-[57.60px]">
           Industry{' '}
         </span>
-        <span className="text-[#38b6ff] text-3xl md:text-5xl font-bold font-['Poppins'] capitalize leading-[36px] md:leading-[57.60px]">
+        <span className="text-primary text-3xl md:text-5xl font-bold capitalize leading-[36px] md:leading-[57.60px]">
           Expertise
         </span>
       </div>
@@ -38,6 +73,7 @@ export default function IndustryExpertise() {
             key={item.name}
             svgPath={item.icon}
             text={item.name}
+            bookmark={item.bookmark}
             isActive={item.isActive}
           />
         ))}
