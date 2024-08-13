@@ -5,31 +5,11 @@ import './styles.css';
 // components/IndustryExpertiseSlider.tsx
 import React, { useRef } from 'react';
 
+import Carousel from './Carousel';
 import Image from 'next/image';
 import IndustryExpertiseTag from './IndustryExpertiseTag';
 import Slider from 'react-slick';
 import WorkItem from './WorkItem';
-
-function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} absolute right-0 z-10 flex items-center justify-center w-12 h-12 rounded-full text-white`}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} absolute right-0 z-10 flex items-center justify-center w-12 h-12 rounded-full text-white`}
-      style={{ ...style }}
-      onClick={onClick}></div>
-  );
-}
 
 const sliderSettings = {
   infinite: true,
@@ -228,24 +208,6 @@ const arrows = [
     className: 'rotate-180 text-5xl ',
   },
 ];
-
-const Carousel = React.forwardRef((props: any, ref: React.Ref<Slider>) => {
-  const { work } = props;
-
-  return (
-    <Slider
-      ref={ref}
-      {...sliderSettings}>
-      {(work.items || []).map((item: any, index: number) => (
-        <div
-          key={index}
-          className='py-2'>
-          <WorkItem {...item} />
-        </div>
-      ))}
-    </Slider>
-  );
-});
 
 export default function IndustryExpertiseSlider() {
   const sliderRefs = useRef<(Slider | null)[]>([]);
