@@ -2,33 +2,34 @@ import React from 'react';
 import Image from 'next/image';
 import serviceBg from '../../../public/assets/images/home/service-bg.png';
 import ServiceCard from './ServiceCard';
+import Link from 'next/link';
 
 const services = [
   {
     id: '1',
     name: 'Custom Sofware Solutions',
-    describe:
+    description:
       'Our software engineering services cover the entire development lifecycle. We analyze your requirements, design intuitive user interfaces, develop clean code, and conduct rigorous testing to ensure high-quality software. We deliver solutions that are reliable, efficient, and maintainable.',
     iconName: 'services-custom-sofware-solutions.png',
   },
   {
     id: '2',
     name: 'Cutting-Edge Solution',
-    describe:
+    description:
       'Our provides innovative software development and IT consulting services, empowering businesses to achieve digital transformation',
     iconName: 'services-cutting-edge-solution.png',
   },
   {
     id: '3',
     name: 'Technical Architecture',
-    describe:
+    description:
       'Our offers comprehensive technical architecture services, designing scalable and secure IT systems tailored to your specific needs. Our experienced architects leverage cutting-edge technologies to optimize performance and reduce costs.',
     iconName: 'services-technical-architecture.svg',
   },
   {
     id: '4',
     name: 'Talent Hub',
-    describe:
+    description:
       'Is your one-stop talent solution. We offer expert recruitment, training, and talent management. Our advanced HR system optimizes your hiring process, saving time and money. Build high-performing teams with Wata Tech.',
     iconName: 'services-talent-hub.svg',
   },
@@ -52,7 +53,7 @@ function ServicesSection() {
         <div className='flex flex-col gap-2'>
           <div>
             <span className='text-white text-5xl font-bold capitalize leading-[57.60px]'>
-              Our 
+              Our
             </span>
             <span className='text-primary text-5xl font-bold capitalize leading-[57.60px]'>
               Services
@@ -69,7 +70,16 @@ function ServicesSection() {
               Talk to us
             </div>
             <div className='p-2.5 bg-primary rounded-[26px] justify-start items-center gap-2.5 flex'>
-              <div className='w-6 h-6 relative' />
+              <Link href={'services'}>
+                <Image
+                  src='/assets/svgs/arrow_right1.svg'
+                  alt='Logo'
+                  width={24}
+                  height={24}
+                  className='h-6 w-6  lg:w-6 lg:h-6  '
+                />
+              </Link>
+              {/* <div className='w-6 h-6 relative' /> */}
             </div>
           </div>
         </div>

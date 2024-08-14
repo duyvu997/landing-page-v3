@@ -8,7 +8,7 @@ export default function ServiceCard({ title, items, icon }: ServiceCardProps) {
   return (
     <div
       key={title}
-      className='lg:w-[648px] lg:h-[376px] bg-[#051219] rounded-xl shadow justify-start items-center lg:flex-row flex flex-col-reverse'>
+      className='lg:h-[376px] bg-[#051219] rounded-xl shadow justify-start items-center lg:flex-row flex flex-col-reverse h-full'>
       <div className='grow shrink basis-0 self-stretch px-6 py-10 bg-[#051219] rounded-xl flex-col justify-start items-start gap-4 inline-flex'>
         <div className="self-stretch text-white text-[32px] font-semibold font-['Poppins'] leading-[48px]">
           {title}

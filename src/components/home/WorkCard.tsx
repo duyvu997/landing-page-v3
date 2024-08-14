@@ -8,12 +8,12 @@ type WorkCardProps = {
   lastRead: string;
   imageName: string;
   tags: string[];
-  describe: string;
+  description: string;
 };
 
 const WorkCard = (props: WorkCardProps) => {
   const workImagesDirPath = '/assets/images/home/';
-  const { title, lastRead, postedDate, imageName, tags, describe } = props;
+  const { title, lastRead, postedDate, imageName, tags, description } = props;
 
   return (
     <div className='bg-black-100 rounded-xl flex-col justify-center items-start flex'>
@@ -21,7 +21,7 @@ const WorkCard = (props: WorkCardProps) => {
         <Image
           alt=''
           className='object-cover object-center p-2  rounded-xl'
-          layout='fill'
+          fill
           src={workImagesDirPath + imageName}
         />
       </div>
@@ -61,7 +61,7 @@ const WorkCard = (props: WorkCardProps) => {
                 maxWidth: '100%',
               }}
             >
-              {describe}
+              {description}
             </div>
           </div>
         </div>

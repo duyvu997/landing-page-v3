@@ -61,7 +61,7 @@ function MissionSection() {
             </div>
           </div>
 
-          <div className='pt-[34px] px-[25%] flex items-center'>
+          <div className='pt-[34px] px-[25%] md:px-[20%] flex items-center'>
             <Image
               src='/assets/images/about/mission-missile.png'
               alt=''

@@ -20,7 +20,7 @@ function FocusTech() {
     'frame153.png',
   ];
   return (
-    <div className='w-full lg:px-[316px] md:px-[200px] px-[24px] pb-[56px] lg:py-[100px] rounded-[7px] flex-col justify-start items-start gap-14 inline-flex'>
+    <div className='w-full md:px-[15%]  px-[24px] pb-[56px] lg:py-[100px] rounded-[7px] flex-col justify-start items-start gap-14 inline-flex'>
       <div className='self-stretch justify-between items-start inline-flex'>
         <div>
           <span className='text-white text-5xl capitalize font-bold leading-[57.60px]'>

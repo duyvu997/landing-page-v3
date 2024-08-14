@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function EngagementSection() {
   return (
     <>
-      <div className='lg:w-[1920px] lg:h-[1216px] lg:px-[300px] lg:py-[100px] px-6 py-14 rounded-[7px] flex-col justify-start items-start gap-20 inline-flex'>
+      <div className=' lg:h-[1216px] md:px-[15%]  lg:py-[100px] px-6 py-14 rounded-[7px] flex-col justify-start items-start gap-20 inline-flex'>
         <div className='self-stretch'>
           <span className="text-white text-5xl font-bold font-['Poppins'] capitalize leading-[57.60px]">
             Engagement{' '}

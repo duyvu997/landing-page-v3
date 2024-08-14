@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 type USPCardProps = {
   summary: string;
-  describe: string;
+  description: string;
   iconName: string;
 };
 
 const USPCard = (props: USPCardProps) => {
-  const { summary, describe, iconName } = props;
+  const { summary, description, iconName } = props;
   const iconDirPath = '/assets/icons/home/';
   return (
     <div className='relative w-full h-full p-10 bg-black-100 rounded-xl flex-col justify-start items-start gap-4 inline-flex overflow-hidden'>
@@ -20,7 +20,7 @@ const USPCard = (props: USPCardProps) => {
             {summary}
           </div>
           <div className='max-w-[284px] text-white text-base font-normal leading-normal'>
-            {describe}
+            {description}
           </div>
         </div>
 

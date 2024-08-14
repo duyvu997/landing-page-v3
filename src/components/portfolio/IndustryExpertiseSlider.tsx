@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 'use client';
 
 import './styles.css';
@@ -5,11 +6,32 @@ import './styles.css';
 // components/IndustryExpertiseSlider.tsx
 import React, { useRef } from 'react';
 
-import Carousel from './Carousel';
 import Image from 'next/image';
 import IndustryExpertiseTag from './IndustryExpertiseTag';
 import Slider from 'react-slick';
 import WorkItem from './WorkItem';
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} absolute right-0 z-10 flex items-center justify-center w-12 h-12 rounded-full text-white`}
+      style={{ ...style }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} absolute right-0 z-10 flex items-center justify-center w-12 h-12 rounded-full text-white`}
+      style={{ ...style }}
+      onClick={onClick}
+    ></div>
+  );
+}
 
 const sliderSettings = {
   infinite: true,
@@ -177,37 +199,26 @@ const works = [
     svgPath: '/assets/svgs/content.svg',
     items: ecommerceWorkItems,
     bookmark: 'content',
-  },
-  {
-    name: 'AR / VR',
-    items: vrWorkItems,
-    svgPath: '/assets/svgs/vr.svg',
-    bookmark: 'vr',
-  },
-  {
-    name: 'Logistics & Supply Chain Management',
-    svgPath: '/assets/svgs/logistic.svg',
-    items: ecommerceWorkItems,
-    bookmark: 'logistic',
+
   },
 ];
 
-const arrows = [
-  {
-    src: '/assets/svgs/arrow_right.svg',
-    alt: 'Previous',
-    width: 20,
-    height: 20,
-    className: 'text-5xl ',
-  },
-  {
-    src: '/assets/svgs/arrow_right.svg',
-    alt: 'Next',
-    width: 20,
-    height: 20,
-    className: 'rotate-180 text-5xl ',
-  },
-];
+const Carousel = React.forwardRef((props: any, ref: React.Ref<Slider>) => {
+  const { work } = props;
+
+  return (
+
+    <Slider ref={ref} {...sliderSettings}>
+      {(work.items || []).map((item: any, index: number) => (
+        <div
+          key={index}
+          className='py-2 px-1'>
+          <WorkItem {...item} />
+        </div>
+      ))}
+    </Slider>
+  );
+});
 
 export default function IndustryExpertiseSlider() {
   const sliderRefs = useRef<(Slider | null)[]>([]);
@@ -216,12 +227,10 @@ export default function IndustryExpertiseSlider() {
     <div className='md:px-[15%] flex flex-col gap-2 px-6'>
       {works.map((work, index) => {
         return (
-          <div
-            key={work.name}
-            id={work.bookmark}>
+          <div key={work.name} id={work.bookmark}>
             <hr className='my-8 border-gray-600' />
 
-            <div className='h-14 justify-between items-center flex mb-4'>
+            <div className='h-14 justify-between items-center flex mb-4 '>
               <div className='flex justify-start items-center'>
                 <IndustryExpertiseTag
                   svgPath={work.svgPath}
@@ -229,10 +238,11 @@ export default function IndustryExpertiseSlider() {
                   bookmark={work.bookmark}
                 />
               </div>
-              <div className='justify-end items-center gap-4 flex'>
+              <div className='justify-end items-center gap-4 flex mr-2 '>
                 <div
                   className='cursor-pointer p-2.5 border border-[#38b6ff] rounded-[26px] justify-start items-center gap-2.5 flex transition duration-300 ease-in-out hover:border-[#70CBFF]'
-                  onClick={() => sliderRefs.current[index]?.slickPrev()}>
+                  onClick={() => sliderRefs.current[index]?.slickPrev()}
+                >
                   <Image
                     src='/assets/svgs/arrow_right.svg'
                     alt='Previous'
@@ -243,7 +253,8 @@ export default function IndustryExpertiseSlider() {
                 </div>
                 <div
                   className='cursor-pointer p-2.5 border border-[#38b6ff] rounded-[26px] justify-start items-center gap-2.5 flex rotate-180'
-                  onClick={() => sliderRefs.current[index]?.slickNext()}>
+                  onClick={() => sliderRefs.current[index]?.slickNext()}
+                >
                   <Image
                     src='/assets/svgs/arrow_right.svg'
                     alt='Next'

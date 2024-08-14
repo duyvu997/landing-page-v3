@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const addresses = [
   {
-    name: "Headquater",
+    name: "Headquarter",
     detail: "50 Cuu Long Street",
     address: "Ward 2, Tan Binh Dist, HCMC, Vietnam",
     phone: "Phone: +84 936932127",

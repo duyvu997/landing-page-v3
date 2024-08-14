@@ -28,7 +28,7 @@ function AwardSection() {
   ];
   return (
     <div className='w-full md:px-[15%] px-6 py-14 lg:py-[100px] rounded-[7px] flex-col justify-start items-start gap-14 inline-flex'>
-      <div className='self-stretch justify-between items-start inline-flex'>
+      <div className='justify-between items-start inline-flex'>
         <div>
           <span className='text-white text-4xl lg:text-5xl font-bold capitalize leading-[57.60px]'>
             Recognitions &{' '}

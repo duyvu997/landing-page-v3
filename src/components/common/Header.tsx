@@ -92,7 +92,7 @@ export default function Header() {
             })}
           </div>
         </div>
-        <div className="hidden md:flex px-6 py-3 bg-primary rounded-xl items-start gap-2">
+        <div className="hidden md:flex px-6 py-3 lg:px-6 lg:py-3 md:px-5 md:py-2 bg-primary rounded-xl items-start gap-2">
           <div className="text-center text-[#02070a] text-base font-bold uppercase tracking-tight">
             Contact Us
           </div>

@@ -11,7 +11,7 @@ const ourWorks = [
     lastRead: '3 Mins read',
     imageName: 'work-sw-online.png',
     tags: ['AI', 'Business intelligence'],
-    describe:
+    description:
       'SW-Online was created to help customers find the most comprehensive information (addresses, phone numbers, …) about companies and decision-makers in Switzerland for marketing purposes.',
   },
   {
@@ -21,7 +21,7 @@ const ourWorks = [
     lastRead: '3 Mins read',
     imageName: 'work-klara.png',
     tags: ['ERP', 'System Management'],
-    describe:
+    description:
       "KLARA was created by the will to help reduce your SMEs' administrative efforts. KLARA takes care of all relevant administrative tasks in your business or in your households.",
   },
   {
@@ -31,7 +31,7 @@ const ourWorks = [
     lastRead: '3 Mins read',
     imageName: 'work-mobile-payment.png',
     tags: ['App', 'Fintech'],
-    describe:
+    description:
       'Mobile payments can be made easily almost everywhere, not only at supermarkets, online shops but also at many other places such as parking slots, vending machines, farm shops, etc.',
   },
   {
@@ -41,7 +41,7 @@ const ourWorks = [
     lastRead: '3 Mins read',
     imageName: 'work-metatrader-platform.png',
     tags: ['Platform', 'Fintech'],
-    describe:
+    description:
       'MetaTrader is platform suite from MetaQuotes Software Corporation, with 2 popular versions MetaTrader 4 (MT4) and MetaTrader 5 (MT5). Our client also recently introduced the ability for users to connect their accounts to TradingView, a popular third-party charting platform.',
   },
 ];
@@ -73,7 +73,7 @@ function WorkSection() {
                 alt='Logo'
                 width={24}
                 height={24}
-                className='h-6 w-6  lg:w-9 lg:h-9 '
+                className='h-6 w-6  lg:w-6 lg:h-6 '
               />
             </Link>
           </div>

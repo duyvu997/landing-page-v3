@@ -47,32 +47,37 @@ export default function OurServiceSection() {
     },
   ];
   return (
-    <div className='lg:h-[1098px] lg:px-[300px] lg:py-[120px] px-6 justify-center items-center gap-6 inline-flex'>
-      <div className='lg:w-[1320px] flex-col justify-center items-start gap-6 inline-flex'>
-        <div className='h-[58px] flex-col justify-start items-start gap-12 flex'>
-          <div className='self-stretch h-[58px] flex-col justify-start items-start gap-4 flex'>
-            <div className='self-stretch'>
-              <span className="text-white text-5xl font-bold font-['Poppins'] capitalize leading-[57.60px]">
-                Our{' '}
-              </span>
-              <span className="text-[#38b6ff] text-5xl font-bold font-['Poppins'] capitalize leading-[57.60px]">
-                Services
-              </span>
-            </div>
+    // lg:h-[1098px] lg:px-[300px] lg:py-[120px] px-6 justify-center items-center gap-6 inline-flex
+    // lg:w-[1320px] flex-col justify-center items-start gap-6 inline-flex
+
+    <div className='md:px-[15%] px-6 lg:py-[120px] md:py-[72px] py-[56px] flex-col gap-14 flex w-full'>
+      <div className='h-[58px] flex-col justify-start items-start gap-12 flex'>
+        <div className='self-stretch h-[58px] flex-col justify-start items-start gap-4 flex'>
+          <div className='self-stretch'>
+            <span className="text-white text-5xl font-bold font-['Poppins'] capitalize leading-[57.60px]">
+              Our{' '}
+            </span>
+            <span className="text-[#38b6ff] text-5xl font-bold font-['Poppins'] capitalize leading-[57.60px]">
+              Services
+            </span>
           </div>
         </div>
-        <div className='justify-start items-center gap-6 lg:grid lg:grid-cols-2'>
-          {services.map((service) => (
-            <div key={service.title} className='mt-4'>
-              <ServiceCard
-                title={service.title}
-                items={service.items}
-                icon={service.icon}
-              />
-            </div>
-          ))}
-        </div>
+      </div>
+      {/* justify-start items-center gap-6 lg:grid lg:grid-cols-2 */}
+      <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-6 '>
+        {services.map((service) => (
+          <div key={service.title} className=''>
+            <ServiceCard
+              title={service.title}
+              items={service.items}
+              icon={service.icon}
+            />
+          </div>
+
+
+        ))}
       </div>
     </div>
+
   );
 }

@@ -5,28 +5,28 @@ const USPs = [
   {
     id: '1',
     summary: 'Quality Focus',
-    describe:
+    description:
       'We prioritize excellence, ensuring that our solutions meet the highest standards of quality and reliability.',
     iconName: 'usp-focus.svg',
   },
   {
     id: '2',
     summary: 'Rapid Ramp-Up',
-    describe:
+    description:
       'With a highly experienced and skilled resource pool, we can quickly scale up our team to meet project requirements and deliver results efficiently.',
     iconName: 'usp-ramp-up.svg',
   },
   {
     id: '3',
     summary: 'Competitive Pricing',
-    describe:
+    description:
       'We offer reasonable and competitive prices, providing exceptional value for our clients without compromising on quality.',
     iconName: 'usp-price.svg',
   },
   {
     id: '4',
     summary: 'Flexible Adaptability',
-    describe:
+    description:
       "We seamlessly adapt to our clients' and partners' working models and processes, fostering collaboration and ensuring a smooth integration between teams for successful project",
     iconName: 'usp-pieces.svg',
   },
@@ -61,7 +61,7 @@ function USPSection() {
           <div key={usp.id}>
             <USPCard
               summary={usp.summary}
-              describe={usp.describe}
+              description={usp.description}
               iconName={usp.iconName}
             />
           </div>

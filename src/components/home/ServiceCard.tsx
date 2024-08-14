@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 type ServiceCardProps = {
   name: string;
-  describe: string;
+  description: string;
   iconName: string;
 };
 
 const ServiceCard = (props: ServiceCardProps) => {
-  const { name, describe, iconName } = props;
+  const { name, description, iconName } = props;
   const iconDirPath = '/assets/icons/home/';
   return (
     <div className='w-full bg-black-100 rounded-xl shadow justify-start items-center flex'>
@@ -17,13 +17,13 @@ const ServiceCard = (props: ServiceCardProps) => {
           {/* <div className="w-[101.57px] h-[84.88px] left-[15.57px] top-[37.45px] absolute"></div> */}
           <Image src={iconDirPath + iconName} alt='' width={84} height={84} />
         </div>
-        <div className='p-6 lg:py-10'>
+        <div className='flex flex-col gap-4'>
           <div className='self-stretch text-white text-[24px] md:text-[32px] font-semibold leading-[36px] md:leading-[48px]'>
             {name}
           </div>
           <div className='self-stretch justify-start items-center gap-4 inline-flex'>
             <div className='grow shrink basis-0 text-white text-[14px] md:text-base font-normal leading-normal'>
-              {describe}
+              {description}
             </div>
           </div>
         </div>
