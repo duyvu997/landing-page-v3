@@ -1,6 +1,8 @@
 'use client';
-import Image from 'next/image';
+
 import React, { useRef } from 'react';
+
+import Image from 'next/image';
 import Slider from 'react-slick';
 
 function PartnerSection() {
@@ -23,10 +25,10 @@ function PartnerSection() {
   let sliderRef = useRef<Slider | null>(null);
 
   const next = () => {
-    sliderRef.slickNext();
+    sliderRef?.current?.slickNext();
   };
   const previous = () => {
-    sliderRef.slickPrev();
+    sliderRef?.current?.slickPrev();
   };
   const settings = {
     dots: true,
@@ -53,8 +55,7 @@ function PartnerSection() {
           <div className='justify-end items-end gap-4 flex md:hidden'>
             <div
               className='cursor-pointer p-2.5 border border-[#38b6ff] rounded-[26px] justify-start items-center gap-2.5 flex transition duration-300 ease-in-out hover:border-[#70CBFF]'
-              onClick={previous}
-            >
+              onClick={previous}>
               <Image
                 src='/assets/svgs/arrow_right.svg'
                 alt='Previous'
@@ -65,8 +66,7 @@ function PartnerSection() {
             </div>
             <div
               className='cursor-pointer p-2.5 border border-[#38b6ff] rounded-[26px] justify-start items-center gap-2.5 flex rotate-180'
-              onClick={next}
-            >
+              onClick={next}>
               <Image
                 src='/assets/svgs/arrow_right.svg'
                 alt='Next'
@@ -81,8 +81,7 @@ function PartnerSection() {
           {partnerImageNames.map((partner) => (
             <div
               key={partner}
-              className='md:max-w-[200px] w-full h-[120px] flex items-center justify-center bg-white rounded-lg '
-            >
+              className='md:max-w-[200px] w-full h-[120px] flex items-center justify-center bg-white rounded-lg '>
               <Image
                 src={imageDirPath + partner}
                 alt=''
@@ -97,15 +96,13 @@ function PartnerSection() {
       <div className='slider-container w-full px-6 pb-14 md:hidden'>
         <Slider
           ref={(slider) => {
-            sliderRef = slider;
+            sliderRef = slider as any;
           }}
-          {...settings}
-        >
+          {...settings}>
           {partnerImageNames.map((partner) => (
             <div
               key={partner}
-              className='!w-[95%] h-[120px] bg-white rounded-lg'
-            >
+              className='!w-[95%] h-[120px] bg-white rounded-lg'>
               <div className='h-full w-full flex items-center'>
                 <Image
                   src={imageDirPath + partner}
